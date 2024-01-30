@@ -1,13 +1,13 @@
+import java.util.Arrays;
+
 public class Canzone extends ArchivioMusicale {
     private String titolo;
     private String artista;
-    private String[] autori;
     private int durata;
     private int anno;
-    public Canzone(String titolo, String artista, String[] autori, int durata, int anno) {
+    public Canzone(String titolo, String artista, int durata, int anno) {
         this.titolo = titolo;
         this.artista = artista;
-        this.autori = autori;
         this.durata = durata;
         this.anno = anno;
     }
@@ -17,13 +17,29 @@ public class Canzone extends ArchivioMusicale {
     public String getArtista() {
         return artista;
     }
-    public String[] getAutori() {
-        return autori;
-    }
     public int getDurata() {
         return durata;
     }
     public int getAnno() {
         return anno;
     }
+    @Override
+    public String toString() {
+        return "Canzone [Titolo: " + titolo + ", Artista: " + artista + "Durata: " + durata + ", Anno: " + anno + "]";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Canzone other = (Canzone) obj;
+        if (!this.artista.equals(other.artista))
+            return false;
+        if (!this.titolo.equals(other.titolo))
+            return false;
+        return true;
+    }
+
+
 }
